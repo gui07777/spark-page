@@ -1,0 +1,263 @@
+// Variáveis de Cor (Baseadas na sua logo)
+$bg-dark: #080808;
+$bg-card: #141414;
+$text-light: #f5f5f5;
+$text-muted: #a3a3a3;
+$spark-orange: #ef5b25; // O tom de laranja da sua logo
+$spark-orange-hover: #d84b1a;
+
+.spark-landing {
+  font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: $bg-dark;
+  color: $text-light;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+// Botões
+.btn-primary {
+  background-color: $spark-orange;
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $spark-orange-hover;
+  }
+}
+
+.btn-primary-outline {
+  background-color: transparent;
+  color: $spark-orange;
+  border: 1px solid $spark-orange;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: $spark-orange;
+    color: #fff;
+  }
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: $text-light;
+  border: 1px solid $text-muted;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: $text-light;
+  }
+}
+
+// Navbar
+.navbar {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+  .nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    height: 40px; // Ajuste conforme necessário
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+
+    a {
+      color: $text-light;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+
+      &:hover {
+        color: $spark-orange;
+      }
+    }
+  }
+}
+
+// Hero Section
+.hero {
+  padding: 100px 0;
+  text-align: center;
+  background: radial-gradient(circle at 50% 0%, rgba(239, 91, 37, 0.08) 0%, transparent 50%);
+
+  .hero-content {
+    max-width: 800px;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 24px;
+    line-height: 1.2;
+
+    .highlight {
+      color: $spark-orange;
+    }
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: $text-muted;
+    margin-bottom: 40px;
+  }
+
+  .hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+}
+
+// Services
+.services {
+  padding: 80px 0;
+  background-color: $bg-dark;
+
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 8px;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: $text-muted;
+    margin-bottom: 48px;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+  }
+
+  .card {
+    background-color: $bg-card;
+    padding: 32px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      border-color: rgba(239, 91, 37, 0.3); // Borda acende levemente de laranja
+    }
+
+    .icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+
+    p {
+      color: $text-muted;
+      font-size: 1rem;
+    }
+  }
+}
+
+// CTA / Contato
+.cta-section {
+  padding: 100px 0;
+  background: linear-gradient(180deg, $bg-dark 0%, #1a0a04 100%);
+  text-align: center;
+
+  .cta-content {
+    max-width: 600px;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+  }
+
+  p {
+    color: $text-muted;
+    margin-bottom: 40px;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    input, textarea {
+      width: 100%;
+      padding: 16px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      color: $text-light;
+      font-family: inherit;
+
+      &:focus {
+        outline: none;
+        border-color: $spark-orange;
+      }
+    }
+  }
+}
+
+// Footer
+footer {
+  padding: 40px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .footer-logo {
+    height: 24px;
+    opacity: 0.5;
+  }
+
+  p {
+    color: $text-muted;
+    font-size: 0.9rem;
+  }
+}
+
+// Responsividade Básica
+@media (max-width: 768px) {
+  .navbar .nav-links {
+    display: none; // No mundo real, você adicionaria um menu hambúrguer aqui
+  }
+
+  .hero h1 { font-size: 2.5rem; }
+  .hero .hero-actions { flex-direction: column; }
+}
