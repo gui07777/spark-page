@@ -21,7 +21,7 @@ export class Home implements OnInit, OnDestroy {
   submitError = false;
 
   // ── Contato ──────────────────────────────────────────────────────────────
-  private readonly phone = '5511969569887';
+  private readonly phone = '5511949605738';
   private readonly waMessage = encodeURIComponent(
     'Olá! Vim pelo site da Spark Technology e gostaria de solicitar um orçamento. 🚀'
   );
