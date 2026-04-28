@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { enviroment } from '../../enviroments/enviroment';
+import { enviroment } from '../../environments/environment';
 
 @Component({
   selector: 'app-home',
