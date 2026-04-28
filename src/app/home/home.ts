@@ -41,7 +41,7 @@ export class Home implements OnInit, OnDestroy {
   ];
 
   diffs = [
-    { icon: '⚡', title: 'Entrega em 2 semanas', desc: 'Do briefing ao site no ar. Sem enrolação.' },
+    { icon: '⚡', title: 'Entrega em 4 semanas', desc: 'Do briefing ao site no ar. Sem enrolação.' },
     { icon: '📈', title: 'Foco em conversão', desc: 'Cada decisão de design é tomada para vender mais.' },
     { icon: '🛡️', title: 'Suporte contínuo', desc: '30 dias de suporte gratuito após a entrega.' },
     { icon: '🔍', title: 'SEO desde o dia 1', desc: 'Seu site indexado e rankeando desde o início.' },
