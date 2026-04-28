@@ -1,68 +1,282 @@
 <div class="spark-landing">
-  <header class="navbar">
+
+  <!-- ░░ CURSOR FOLLOWER ░░ -->
+  <div class="cursor-dot" #cursorDot></div>
+  <div class="cursor-ring" #cursorRing></div>
+
+  <!-- ░░ NAVBAR ░░ -->
+  <header class="navbar" [class.scrolled]="isScrolled">
     <div class="container nav-content">
-      <img src="spark-no-background-2.png" alt="Spark Logo" class="logo">
+      <a class="logo-wrap" href="#">
+        <img src="spark-no-background-2.png" alt="Spark" class="logo">
+      </a>
       <nav class="nav-links">
-        <a href="#servicos">Serviços</a>
-        <a href="#diferenciais">Por que a Spark?</a>
-        <button class="btn-primary-outline" (click)="scrollToContact()">Fale Conosco</button>
+        <a href="#servicos" class="nav-item">Serviços</a>
+        <a href="#diferenciais" class="nav-item">Diferenciais</a>
+        <a class="btn-nav" [href]="whatsappUrl" target="_blank" rel="noopener">
+          <span>Fale Conosco</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
       </nav>
+      <button class="hamburger" (click)="toggleMenu()" [class.open]="menuOpen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" [class.open]="menuOpen">
+      <a href="#servicos" (click)="toggleMenu()">Serviços</a>
+      <a href="#diferenciais" (click)="toggleMenu()">Diferenciais</a>
+      <a class="btn-primary" [href]="whatsappUrl" target="_blank" rel="noopener" (click)="toggleMenu()">Fale Conosco</a>
     </div>
   </header>
 
+  <!-- ░░ HERO ░░ -->
   <section class="hero">
-    <div class="container hero-content">
-      <h1>Acelerando pequenos negócios com <span class="highlight">tecnologia de ponta.</span></h1>
-      <p>Desenvolvemos landing pages e sites de alta performance que convertem visitantes em clientes. Design exclusivo e programação profissional para destacar a sua marca no mundo digital.</p>
-      <div class="hero-actions">
-        <button class="btn-primary" (click)="scrollToContact()">Solicitar Orçamento</button>
-        <button class="btn-secondary" href="#portfolia">Ver Portfólio</button>
+    <div class="hero-bg">
+      <div class="grid-overlay"></div>
+      <div class="glow glow-1"></div>
+      <div class="glow glow-2"></div>
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+    </div>
+
+    <div class="container hero-inner">
+      <div class="hero-label">
+        <span class="dot-pulse"></span>
+        Disponível para novos projetos
       </div>
+
+      <h1 class="hero-title">
+        <span class="line">Aceleramos</span>
+        <span class="line accent-line">
+          pequenos negócios
+          <span class="underline-svg">
+            <svg viewBox="0 0 320 12" preserveAspectRatio="none">
+              <path d="M2 9 C 80 3, 240 3, 318 9" stroke="#ef5b25" stroke-width="3" fill="none" stroke-linecap="round"/>
+            </svg>
+          </span>
+        </span>
+        <span class="line">com tecnologia.</span>
+      </h1>
+
+      <p class="hero-sub">
+        Landing pages e sites que convertem. Design exclusivo e código de alta performance para destacar sua marca no digital.
+      </p>
+
+      <div class="hero-actions">
+        <button class="btn-primary" (click)="scrollToContact()">
+          Solicitar Orçamento
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <a href="#servicos" class="btn-ghost">Ver Serviços</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">+40</span>
+          <span class="stat-label">Projetos entregues</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number">98%</span>
+          <span class="stat-label">Satisfação dos clientes</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number">3x</span>
+          <span class="stat-label">Mais conversões</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
     </div>
   </section>
 
+  <!-- ░░ MARQUEE ░░ -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <span>Landing Pages</span><span class="sep">✦</span>
+      <span>Sites Institucionais</span><span class="sep">✦</span>
+      <span>Performance & SEO</span><span class="sep">✦</span>
+      <span>UI/UX Design</span><span class="sep">✦</span>
+      <span>Identidade Visual</span><span class="sep">✦</span>
+      <span>E-commerce</span><span class="sep">✦</span>
+      <span>Landing Pages</span><span class="sep">✦</span>
+      <span>Sites Institucionais</span><span class="sep">✦</span>
+      <span>Performance & SEO</span><span class="sep">✦</span>
+      <span>UI/UX Design</span><span class="sep">✦</span>
+      <span>Identidade Visual</span><span class="sep">✦</span>
+      <span>E-commerce</span><span class="sep">✦</span>
+    </div>
+  </div>
+
+  <!-- ░░ SERVICES ░░ -->
   <section id="servicos" class="services">
     <div class="container">
-      <h2>Nossas Soluções</h2>
-      <p class="section-subtitle">Produtos digitais construídos para gerar resultados reais.</p>
-      
-      <div class="cards-grid">
-        <div class="card">
-          <div class="icon">🚀</div>
-          <h3>Landing Pages</h3>
-          <p>Páginas de alta conversão, otimizadas para campanhas de anúncios, captando leads e vendas com máxima eficiência.</p>
-        </div>
-        <div class="card">
-          <div class="icon">💻</div>
-          <h3>Sites Institucionais</h3>
-          <p>A vitrine digital perfeita para sua empresa. Sites rápidos, responsivos e com design alinhado à sua identidade visual.</p>
-        </div>
-        <div class="card">
-          <div class="icon">⚡</div>
-          <h3>Performance e SEO</h3>
-          <p>Código limpo e otimizado para que seu site carregue rápido e seja facilmente encontrado no Google.</p>
+      <div class="section-header">
+        <div class="section-tag">O que fazemos</div>
+        <h2>Soluções digitais <br><em>que geram resultados</em></h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card" *ngFor="let s of services; let i = index" [style.--i]="i">
+          <div class="card-num">{{ '0' + (i+1) }}</div>
+          <div class="card-icon">{{ s.icon }}</div>
+          <div class="card-body">
+            <h3>{{ s.title }}</h3>
+            <p>{{ s.desc }}</p>
+          </div>
+          <div class="card-arrow">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="card-glow"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="contato" class="cta-section">
-    <div class="container cta-content">
-      <h2>Pronto para acender a faísca do seu negócio?</h2>
-      <p>Fale com a nossa equipe de especialistas e descubra como podemos transformar sua presença digital.</p>
-      <form class="contact-form">
-        <input type="text" placeholder="Seu Nome" required>
-        <input type="email" placeholder="Seu E-mail" required>
-        <textarea placeholder="Fale um pouco sobre o seu projeto..." rows="4" required></textarea>
-        <button type="submit" class="btn-primary">Enviar Mensagem</button>
-      </form>
+  <!-- ░░ WHY SPARK ░░ -->
+  <section id="diferenciais" class="why-section">
+    <div class="container why-inner">
+      <div class="why-left">
+        <div class="section-tag">Por que a Spark?</div>
+        <h2>Mais que um site. <br><em>Uma máquina de crescimento.</em></h2>
+        <p class="why-lead">Entendemos que para pequenos negócios cada real investido precisa retornar. Por isso entregamos design estratégico, não apenas bonito.</p>
+        <button class="btn-primary" (click)="scrollToContact()">Começar agora</button>
+      </div>
+      <div class="why-right">
+        <div class="diff-item" *ngFor="let d of diffs">
+          <div class="diff-icon">{{ d.icon }}</div>
+          <div>
+            <strong>{{ d.title }}</strong>
+            <p>{{ d.desc }}</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <footer>
-    <div class="container footer-content">
-      <img src="assets/spark-logo.png" alt="Spark Logo" class="footer-logo">
-      <p>&copy; 2026 Spark Digital. Todos os direitos reservados.</p>
+  <!-- ░░ PROCESS ░░ -->
+  <section class="process-section">
+    <div class="container">
+      <div class="section-header centered">
+        <div class="section-tag">Como trabalhamos</div>
+        <h2>Do briefing ao <em>ar em 2 semanas</em></h2>
+      </div>
+      <div class="process-steps">
+        <div class="step" *ngFor="let p of process; let i = index">
+          <div class="step-num">{{ '0' + (i+1) }}</div>
+          <h4>{{ p.title }}</h4>
+          <p>{{ p.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ CTA / CONTATO ░░ -->
+  <section id="contato" class="cta-section">
+    <div class="cta-bg">
+      <div class="cta-glow"></div>
+    </div>
+    <div class="container cta-inner">
+
+      <div class="cta-text">
+        <div class="section-tag">Vamos conversar</div>
+        <h2>Pronto para acender a <em>faísca</em> do seu negócio?</h2>
+        <p>Fale com nossa equipe. Respondemos em até 24h.</p>
+        <div class="contact-trust">
+          <span>Sem compromisso</span>
+          <span>Orçamento gratuito</span>
+          <span>Resposta rápida</span>
+        </div>
+        <a class="whatsapp-direct" [href]="whatsappUrl" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Ou fale direto pelo WhatsApp
+        </a>
+      </div>
+
+      <form class="contact-form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nome</label>
+            <input type="text" placeholder="Seu nome completo" required [(ngModel)]="formData.name" name="name">
+          </div>
+          <div class="form-group">
+            <label>E-mail</label>
+            <input type="email" placeholder="seu@email.com" required [(ngModel)]="formData.email" name="email">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Serviço de interesse</label>
+          <select [(ngModel)]="formData.service" name="service">
+            <option value="">Selecione um serviço...</option>
+            <option>Landing Page</option>
+            <option>Site Institucional</option>
+            <option>E-commerce</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Mensagem</label>
+          <textarea placeholder="Conte-nos sobre o seu projeto..." rows="4" [(ngModel)]="formData.message" name="message"></textarea>
+        </div>
+        <button type="submit" class="btn-primary full-width" [disabled]="isSubmitting">
+          <span *ngIf="!isSubmitting">Enviar Mensagem</span>
+          <span *ngIf="isSubmitting">Enviando...</span>
+          <svg *ngIf="!isSubmitting" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="form-success" *ngIf="submitSuccess">
+          ✅ Mensagem enviada! Retornaremos em até 24h.
+        </div>
+        <div class="form-error" *ngIf="submitError">
+          ❌ Erro ao enviar. Tente pelo <a [href]="whatsappUrl" target="_blank">WhatsApp</a> ou e-mail.
+        </div>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- ░░ FOOTER ░░ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="spark-no-background-2.png" alt="Spark" class="footer-logo">
+        <p>Acelerando pequenos negócios com tecnologia de ponta.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#servicos">Serviços</a>
+        <a href="#diferenciais">Diferenciais</a>
+        <a href="#contato">Contato</a>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Spark Technology. Todos os direitos reservados.</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/spark_technologyofc?igsh=ZW9qZ2RuOGxldnN0" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+            </svg>
+          </a>
+          <a [href]="whatsappUrl" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
     </div>
   </footer>
+
 </div>
