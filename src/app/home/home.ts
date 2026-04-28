@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { enviroment } from '../../enviroments/enviroment';
 
 @Component({
   selector: 'app-home',
@@ -27,9 +28,6 @@ export class Home implements OnInit, OnDestroy {
   readonly whatsappUrl = `https://wa.me/${this.phone}?text=${this.waMessage}`;
 
   // ── EmailJS ───────────────────────────────────────────────────────────────
-  private readonly EMAILJS_SERVICE_ID = 'service_03575oc';
-  private readonly EMAILJS_TEMPLATE_ID = 'template_u8tblth';
-  private readonly EMAILJS_PUBLIC_KEY = '-r7fh9p0BZG-7YZCL';
 
   formData = { name: '', email: '', service: '', message: '' };
 
@@ -100,9 +98,9 @@ export class Home implements OnInit, OnDestroy {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          service_id: this.EMAILJS_SERVICE_ID,
-          template_id: this.EMAILJS_TEMPLATE_ID,
-          user_id: this.EMAILJS_PUBLIC_KEY,
+          service_id: enviroment.emailjs.serviceId,
+          template_id: enviroment.emailjs.templlateId,
+          user_id: enviroment.emailjs.publicKey,
           template_params: {
             from_name: this.formData.name,
             from_email: this.formData.email,
